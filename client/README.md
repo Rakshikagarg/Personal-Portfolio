@@ -19,10 +19,12 @@ portfolio/
 │       ├── styles/       ← global.css
 │       ├── App.jsx
 │       └── index.js
+├── .env
+├── README.md
 └── server/          ← Node.js + Express backend (build next)
     ├── routes/
     ├── models/
-    ├── .env
+    
     └── index.js
 ```
 

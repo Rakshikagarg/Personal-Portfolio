@@ -68,7 +68,6 @@ export default function Hero() {
           <div className="hero__crosshair">
             <div className="hero__crosshair-dot" />
           </div>
-          <span className="hero__subnav-name">Rakshika Garg</span>
         </div>
 
         <ul className="hero__subnav-roles">
