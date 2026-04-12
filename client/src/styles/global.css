@@ -1,0 +1,183 @@
+/* ── GLOBAL STYLES ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --green: #1a2e1a;
+  --green2: #243324;
+  --cream: #f0ece0;
+  --cream2: #e8e2d0;
+  --orange: #f5a623;
+  --orange2: #e8941a;
+  --dark: #0d1a0d;
+  --serif: 'Playfair Display', serif;
+  --sans: 'Space Grotesk', sans-serif;
+  --mono: 'Space Mono', monospace;
+  --page-bg: var(--cream);
+  --page-text: var(--green);
+  --section-light-bg: var(--cream);
+  --section-light-bg-alt: var(--cream2);
+  --section-light-text: var(--green);
+  --section-light-text-soft: rgba(13, 26, 13, 0.78);
+  --section-dark-bg: var(--green);
+  --section-dark-bg-alt: var(--green2);
+  --section-dark-text: #f5f0e8;
+  --section-dark-text-soft: rgba(245, 240, 232, 0.74);
+  --section-border-light: rgba(26, 46, 26, 0.1);
+  --section-border-dark: rgba(240, 236, 224, 0.08);
+  --card-hover-dark: #2a3d2a;
+  --hero-bg: #1a2e1a;
+  --field-bg: rgba(240, 236, 224, 0.04);
+  --field-border: rgba(240, 236, 224, 0.09);
+  --field-placeholder: rgba(245, 240, 232, 0.7);
+  --toggle-bg: rgba(240, 236, 224, 0.04);
+  --toggle-border: rgba(240, 236, 224, 0.15);
+  --toggle-text: var(--section-dark-text);
+}
+
+[data-theme='dark'] {
+  --page-bg: var(--cream);
+  --page-text: var(--green);
+  --section-light-bg: var(--cream);
+  --section-light-bg-alt: var(--cream2);
+  --section-light-text: var(--green);
+  --section-light-text-soft: rgba(13, 26, 13, 0.78);
+  --section-dark-bg: var(--green);
+  --section-dark-bg-alt: var(--green2);
+  --section-dark-text: #f5f0e8;
+  --section-dark-text-soft: rgba(245, 240, 232, 0.74);
+  --section-border-light: rgba(26, 46, 26, 0.1);
+  --section-border-dark: rgba(240, 236, 224, 0.08);
+  --card-hover-dark: #2a3d2a;
+  --hero-bg: #1a2e1a;
+  --field-bg: rgba(240, 236, 224, 0.04);
+  --field-border: rgba(240, 236, 224, 0.09);
+  --field-placeholder: rgba(245, 240, 232, 0.7);
+  --toggle-bg: rgba(240, 236, 224, 0.04);
+  --toggle-border: rgba(240, 236, 224, 0.15);
+  --toggle-text: var(--section-dark-text);
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--page-text);
+  font-family: var(--sans);
+  font-weight: 400;
+  overflow-x: hidden;
+  cursor: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-shell {
+  transition: filter 0.3s ease;
+}
+
+[data-theme='dark'] .app-shell {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+[data-theme='dark'] .app-shell img,
+[data-theme='dark'] .app-shell picture,
+[data-theme='dark'] .app-shell video,
+[data-theme='dark'] .app-shell canvas {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+a {
+  cursor: none;
+}
+
+button {
+  cursor: none;
+}
+
+/* ── CURSOR ── */
+.cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--orange);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s;
+  mix-blend-mode: multiply;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--orange);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.18s ease;
+  opacity: 0.5;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-l {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-l.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── SHARED ── */
+.nav-diamond {
+  width: 10px;
+  height: 10px;
+  background: var(--orange);
+  transform: rotate(45deg);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.about,
+.skills,
+.soft-skills,
+.edu,
+.projects,
+.certs,
+.download,
+.contact,
+.footer,
+.navbar,
+.hero,
+.proj-card,
+.cert-card,
+.soft-badge,
+.fg input,
+.fg textarea,
+.contact-box {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
