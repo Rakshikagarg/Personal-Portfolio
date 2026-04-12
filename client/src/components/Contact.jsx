@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import './Contact.css';
 
-const API_URL = "https://personal-portfolio-0c5g.onrender.com";
-
+const API_URL = "https://personal-portfolio-production-7b1c.up.railway.app";
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState(null);
