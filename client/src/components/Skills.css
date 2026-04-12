@@ -1,0 +1,261 @@
+.skills {
+  background: var(--section-light-bg-alt);
+  padding: 5rem 3rem;
+}
+
+.skills-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.skills-h {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--section-light-text);
+}
+
+.skills-h em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.skills-subtitle {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.skills-subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--orange);
+  transform: rotate(45deg);
+}
+
+.sg-section {
+  margin-bottom: 3.5rem;
+}
+
+.sg-title {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.sg-title::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--orange);
+  transform: rotate(45deg);
+}
+
+.circles-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+}
+
+.ring-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ring-wrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.ring-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.ring-pct {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--section-light-text);
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+.ring-fg {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: var(--section-border-light);
+  stroke-width: 7;
+}
+
+.ring-accent {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 12 428;
+  stroke-dashoffset: 440;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ring-name {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--section-light-text-soft);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 180px;
+}
+
+.circles-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+}
+
+
+/* ── SOFT SKILLS ── */
+.soft-skills {
+  background: var(--orange);
+  padding: 7rem 3rem;
+}
+
+.soft-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.soft-h {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--section-dark-text);
+  margin-bottom: 0.4rem;
+}
+
+.soft-h em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.soft-tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--section-dark-text);
+  margin-bottom: 3rem;
+  display: block;
+}
+
+.soft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.soft-badge {
+  background: var(--section-dark-bg);
+  border: 1px solid var(--section-border-dark);
+  color: var(--section-dark-text);
+  padding: 1.2rem 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: background 0.2s, border-color 0.2s;
+  cursor: default;
+}
+
+.soft-badge:hover {
+  background: var(--card-hover-dark);
+  border-color: var(--section-dark-text);
+}
+
+.soft-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.soft-badge-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.soft-desc {
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--section-dark-text-soft);
+  letter-spacing: 0.02em;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 900px) {
+  .skills,
+  .soft-skills {
+    padding: 5rem 1.5rem;
+  }
+
+  .circles-row {
+    justify-content: center;
+  }
+}

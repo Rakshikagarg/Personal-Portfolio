@@ -1,0 +1,154 @@
+.about {
+  background: var(--section-light-bg);
+  padding: 7rem 3rem;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.hello-h {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--section-light-text);
+  margin-bottom: 1.5rem;
+}
+
+.hello-h span {
+  color: var(--orange);
+}
+
+.about-p {
+  color: var(--section-light-text-soft);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.about-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--orange);
+  color: var(--dark);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.about-linkedin:hover {
+  background: var(--orange2);
+}
+
+/* RIGHT */
+.about-right {
+  position: relative;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--section-dark-bg-alt);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.about-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  position: absolute;
+  inset: 0;
+}
+
+.about-photo-img[src]:not([src=""]) {
+  display: block;
+}
+
+.about-initials {
+  font-family: var(--serif);
+  font-size: 9rem;
+  font-style: italic;
+  font-weight: 900;
+  color: rgba(245, 166, 35, 0.15);
+  user-select: none;
+}
+
+.about-tag {
+  position: absolute;
+  background: var(--orange);
+  color: var(--dark);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.5rem 1.1rem;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+.about-tag.t1 {
+  top: 2rem;
+  left: -1rem;
+}
+
+.about-tag.t2 {
+  bottom: 7rem;
+  right: 1rem;
+}
+
+.contact-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--section-dark-bg);
+  padding: 1.5rem 2rem;
+  z-index: 1;
+}
+
+.contact-box h3 {
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 0.8rem;
+}
+
+.c-row {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--section-dark-text);
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .about {
+    padding: 5rem 1.5rem;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-tag.t1 { left: 0; }
+  .about-tag.t2 { right: 0; }
+}

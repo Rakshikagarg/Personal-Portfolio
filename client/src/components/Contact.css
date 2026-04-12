@@ -1,0 +1,215 @@
+/* CV DOWNLOAD  */
+.download {
+  background: var(--orange);
+  padding: 4.5rem 3rem;
+  text-align: center;
+}
+
+.dl-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--dark);
+  margin-bottom: 0.4rem;
+}
+
+.dl-sub {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: rgba(13, 26, 13, 0.7);
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.dl-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dl-btn {
+  background: var(--dark);
+  color: var(--cream);
+  padding: 0.9rem 2.2rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+
+.dl-btn:hover {
+  opacity: 0.82;
+}
+
+.dl-btn.ol {
+  background: transparent;
+  border: 2px solid var(--dark);
+  color: var(--dark);
+}
+
+/* CONTACT FORM */
+.contact {
+  background: var(--section-dark-bg);
+  padding: 7rem 3rem;
+}
+
+.contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.contact-h {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--section-dark-text);
+  line-height: 1.0;
+  margin-bottom: 1.5rem;
+}
+
+.contact-h em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.contact-p {
+  font-size: 0.92rem;
+  color: var(--section-dark-text-soft);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
+
+.c-info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.c-info-d {
+  width: 8px;
+  height: 8px;
+  background: var(--orange);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.c-info-row span,
+.c-info-row a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--section-dark-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.c-info-row a:hover {
+  color: var(--orange);
+}
+
+/* FORM */
+.fg {
+  margin-bottom: 1.2rem;
+}
+
+.fg label {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--section-dark-text);
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+.fg input,
+.fg textarea {
+  width: 100%;
+  background: var(--field-bg);
+  border: 1px solid var(--field-border);
+  color: var(--section-dark-text);
+  padding: 0.9rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.fg input:focus,
+.fg textarea:focus {
+  border-color: var(--orange);
+}
+
+.fg input::placeholder,
+.fg textarea::placeholder {
+  color: var(--field-placeholder);
+}
+
+.fg textarea {
+  min-height: 130px;
+  resize: none;
+}
+
+.send-btn {
+  width: 100%;
+  background: var(--orange);
+  color: var(--dark);
+  padding: 1rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  transition: background 0.2s;
+  margin-top: 0.3rem;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: var(--orange2);
+}
+
+.send-btn:disabled {
+  opacity: 0.7;
+}
+
+.f-msg {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  padding: 0.8rem 1rem;
+  margin-top: 0.8rem;
+}
+
+.f-msg.ok {
+  background: rgba(245, 166, 35, 0.1);
+  color: var(--orange);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+}
+
+.f-msg.err {
+  background: rgba(220, 60, 60, 0.1);
+  color: #f09090;
+  border: 1px solid rgba(220, 60, 60, 0.2);
+}
+
+@media (max-width: 900px) {
+  .download,
+  .contact {
+    padding: 5rem 1.5rem;
+  }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
