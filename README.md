@@ -1,9 +1,27 @@
 # Rakshika — MERN Stack Portfolio
 
-A full-stack personal portfolio built with the MERN Stack.
+A full-stack personal portfolio built using the MERN stack, showcasing projects, skills, and a fully functional contact system with database storage and email integration.
+
+---
 
 ## 🔗 Live Demo
-> Add your deployment link here after deploying
+
+🌐 Frontend: https://personal-portfolio-phi-eight-83.vercel.app/
+⚙️ Backend: https://personal-portfolio-0c5g.onrender.com
+
+---
+
+## ✨ Features
+
+* Responsive UI (mobile + desktop)
+* Modern animated hero section
+* Clean and minimal design
+* Project showcase section
+* Downloadable CV (PDF & DOCX)
+* Contact form with:
+
+  * MongoDB data storage
+  * Email notifications using Nodemailer
 
 ---
 
@@ -11,16 +29,16 @@ A full-stack personal portfolio built with the MERN Stack.
 
 ```
 portfolio/
-├── client/          ← React frontend (this folder)
+├── client/          ← React frontend
 │   ├── public/
+│   │   └── cv/
 │   └── src/
-│       ├── components/   ← All section components
-│       ├── hooks/        ← useCursor, useScrollReveal
-│       ├── styles/       ← global.css
+│       ├── components/
+│       ├── hooks/
+│       ├── styles/
 │       ├── App.jsx
-│       └── index.js
-└── server/          ← Node.js + Express backend (build next)
-    ├── routes/
+│       └── main.jsx
+└── server/          ← Node.js + Express backend
     ├── models/
     ├── .env
     └── index.js
@@ -28,55 +46,71 @@ portfolio/
 
 ---
 
+## 🚀 Tech Stack
+
+* Frontend: React, CSS, Vite
+* Backend: Node.js, Express
+* Database: MongoDB
+* Email Service: Nodemailer
+* Deployment:
+
+  * Frontend → Vercel
+  * Backend → Render
+
+---
+
 ## 🚀 Local Setup
 
-### 1. Clone the repo
-```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
+### 1. Clone the repository
+
+```
+git clone https://github.com/Rakshikagarg/Personal-Portfolio.git
+cd Personal-Portfolio
 ```
 
-### 2. Start the React frontend
-```bash
+### 2. Run frontend
+
+```
 cd client
-npm install
-npm start
-```
-Runs on `http://localhost:3000`
-
-### 3. Start the Express backend
-```bash
-cd server
 npm install
 npm run dev
 ```
-Runs on `http://localhost:5000`
 
-> The React app proxies API calls to `localhost:5000` via the `"proxy"` field in `client/package.json`.
+### 3. Run backend
 
----
-
-## ⚙️ Environment Variables
-
-Create a `.env` file inside `/server`:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
+```
+cd server
+npm install
+node index.js
 ```
 
-> ⚠️ Never push `.env` to GitHub. It is already listed in `.gitignore`.
+---
+
+## 📬 Contact Feature
+
+The contact form:
+
+* Stores messages in MongoDB
+* Sends email notifications to the owner
+* Validates user input before submission
 
 ---
 
-## 🌐 Deployment
+## 📌 Future Improvements
 
-| Part     | Platform         |
-|----------|-----------------|
-| Frontend | Vercel / Netlify |
-| Backend  | Render / Railway |
+* Add animations across all sections
+* Improve accessibility (ARIA, contrast, etc.)
+* Add project filtering system
+* Enhance UI/UX interactions
+* Optimize performance
 
 ---
 
+## 👩‍💻 Author
 
-Built with React.js · Node.js · Express.js · MongoDB
+Rakshika Garg
+BTech CSE | Full-Stack Developer | UI/UX Learner
+
+---
+
+⭐ If you like this project, consider giving it a star!
