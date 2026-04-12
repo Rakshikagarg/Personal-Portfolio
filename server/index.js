@@ -10,9 +10,7 @@ dotenv.config();
 const app = express();
 
 // ✅ CORS (allow your frontend only)
-app.use(cors({
-  origin: 'https://personal-portfolio-phi-eight-83.vercel.app'
-}));
+app.use(cors());
 
 app.use(express.json());
 
