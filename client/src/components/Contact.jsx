@@ -5,7 +5,7 @@ const API_URL = "https://personal-portfolio-0c5g.onrender.com";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState(null); 
+  const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -27,19 +27,22 @@ export default function Contact() {
         body: JSON.stringify(form),
       });
 
+      const data = await res.json(); // ✅ IMPORTANT
+
       if (res.ok) {
         setStatus('ok');
         setForm({ name: '', email: '', message: '' });
       } else {
+        console.log("Server error:", data);
         setStatus('err');
       }
 
     } catch (err) {
-      console.error(err);
+      console.error("Fetch error:", err);
       setStatus('err');
     }
 
-    setLoading(false);
+    setLoading(false); // ✅ ALWAYS runs
   };
 
   return (
@@ -51,6 +54,7 @@ export default function Contact() {
           <p className="dl-sub">
             Available in PDF and Word formats - click a button to download directly
           </p>
+
           <div className="dl-btns">
             <a
               href="/cv/rakshika-garg-cv.pdf"
@@ -59,6 +63,7 @@ export default function Contact() {
             >
               Download PDF
             </a>
+
             <a
               href="/cv/rakshika-garg-cv.docx"
               className="dl-btn ol"
@@ -76,7 +81,10 @@ export default function Contact() {
 
           {/* LEFT */}
           <div className="reveal-l">
-            <h2 className="contact-h"><em>Get In</em><br />Touch</h2>
+            <h2 className="contact-h">
+              <em>Get In</em><br />Touch
+            </h2>
+
             <p className="contact-p">
               I'm currently open to internship opportunities, freelance work,
               and collaborations. Let's build something great together!
