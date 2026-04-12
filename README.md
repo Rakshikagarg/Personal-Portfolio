@@ -4,10 +4,8 @@ A full-stack personal portfolio built using the MERN stack, showcasing projects,
 
 ---
 
-## 🔗 Live Demo
-
-🌐 Frontend: https://personal-portfolio-phi-eight-83.vercel.app/
-⚙️ Backend: https://personal-portfolio-0c5g.onrender.com
+## [🔗 Live Demo ](https://personal-portfolio-phi-eight-83.vercel.app/)
+[⚙️ Backend](https://personal-portfolio-0c5g.onrender.com)
 
 ---
 
@@ -38,9 +36,11 @@ portfolio/
 │       ├── styles/
 │       ├── App.jsx
 │       └── main.jsx
+ ├── .env
+ ├── README.md
 └── server/          ← Node.js + Express backend
     ├── models/
-    ├── .env
+   
     └── index.js
 ```
 

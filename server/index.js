@@ -9,12 +9,10 @@ dotenv.config();
 
 const app = express();
 
-// ✅ CORS (allow all for now)
-app.use(cors());
 
+app.use(cors());
 app.use(express.json());
 
-// ✅ Test route
 app.get('/', (req, res) => {
   res.send('Backend is running 🚀');
 });
@@ -24,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB error:', err));
 
-// ✅ Gmail transporter
+// ✅ Gmail 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
@@ -34,7 +32,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
-// ✅ Contact route
 app.post('/api/contact', async (req, res) => {
   console.log("Incoming data:", req.body);
 
@@ -45,12 +42,10 @@ app.post('/api/contact', async (req, res) => {
   }
 
   try {
-    // 🔹 Save to MongoDB
     const contact = new Contact({ name, email, message });
     await contact.save();
     console.log('✓ Saved to MongoDB:', contact._id);
 
-    // 🔹 Send email (non-blocking)
     console.log('Sending email...');
 
     try {
@@ -73,7 +68,6 @@ app.post('/api/contact', async (req, res) => {
       console.log('❌ Email failed but continuing:', err.message);
     }
 
-    // ✅ Always respond (VERY IMPORTANT)
     res.status(201).json({
       success: true,
       message: "Message received!"
@@ -87,6 +81,5 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// ✅ PORT
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

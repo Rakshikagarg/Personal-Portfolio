@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Contact.css';
 
-const API_URL = "https://personal-portfolio-production-7b1c.up.railway.app";
+const API_URL = " https://personal-portfolio-0c5g.onrender.com";
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState(null);
@@ -26,7 +26,7 @@ export default function Contact() {
         body: JSON.stringify(form),
       });
 
-      const data = await res.json(); // ✅ IMPORTANT
+      const data = await res.json(); 
 
       if (res.ok) {
         setStatus('ok');
@@ -41,7 +41,7 @@ export default function Contact() {
       setStatus('err');
     }
 
-    setLoading(false); // ✅ ALWAYS runs
+    setLoading(false); 
   };
 
   return (
