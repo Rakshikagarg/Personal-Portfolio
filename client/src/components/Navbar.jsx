@@ -35,8 +35,7 @@ export default function Navbar() {
 <div className="nav-right">
       <a
   href="/cv/rakshika-garg-cv.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
+  download
   className="nav-cv"
 >
   CV
