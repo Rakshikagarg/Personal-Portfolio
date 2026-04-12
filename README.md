@@ -83,34 +83,6 @@ cd server
 npm install
 node index.js
 ```
-
----
-
-## 📬 Contact Feature
-
-The contact form:
-
-* Stores messages in MongoDB
-* Sends email notifications to the owner
-* Validates user input before submission
-
----
-
-## 📌 Future Improvements
-
-* Add animations across all sections
-* Improve accessibility (ARIA, contrast, etc.)
-* Add project filtering system
-* Enhance UI/UX interactions
-* Optimize performance
-
----
-
-## 👩‍💻 Author
-
 Rakshika Garg
 BTech CSE | Full-Stack Developer | UI/UX Learner
 
----
-
-⭐ If you like this project, consider giving it a star!
