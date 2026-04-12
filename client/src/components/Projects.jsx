@@ -35,7 +35,7 @@ const projects = [
   },
   {
     num: '05',
-    name: 'RoadSaarthi',
+    name: 'RoadSaarthi Web App',
     desc: 'A smart navigation and assistance platform designed to improve road travel experience with real-time insights.',
     tech: ['HTML', 'CSS', 'JavaScript', 'React'],
     github: 'https://github.com/Dhruv-aka-Dp/RoadSaarthi',
