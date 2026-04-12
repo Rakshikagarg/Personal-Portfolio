@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-// ✅ CORS (allow your frontend only)
+// ✅ CORS (allow all for now)
 app.use(cors());
 
 app.use(express.json());
@@ -35,6 +35,8 @@ const transporter = nodemailer.createTransport({
 
 // ✅ Contact route
 app.post('/api/contact', async (req, res) => {
+  console.log("Incoming data:", req.body);
+
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
@@ -47,23 +49,30 @@ app.post('/api/contact', async (req, res) => {
     await contact.save();
     console.log('✓ Saved to MongoDB:', contact._id);
 
-    // 🔹 Send email
+    // 🔹 Send email (non-blocking)
     console.log('Sending email...');
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      subject: `New message from ${name}`,
-      html: `
-        <h2>New Portfolio Contact</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br/>')}</p>
-      `,
-    });
 
-    console.log('✓ Email sent successfully');
+    try {
+      await transporter.sendMail({
+        from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+        to: process.env.EMAIL_USER,
+        subject: `New message from ${name}`,
+        html: `
+          <h2>New Portfolio Contact</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message.replace(/\n/g, '<br/>')}</p>
+        `,
+      });
 
+      console.log('✓ Email sent successfully');
+
+    } catch (err) {
+      console.log('❌ Email failed but continuing:', err.message);
+    }
+
+    // ✅ Always respond (VERY IMPORTANT)
     res.status(201).json({
       success: true,
       message: "Message received!"
