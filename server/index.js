@@ -8,15 +8,25 @@ import Contact from './models/Contact.js';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// ✅ CORS (allow your frontend only)
+app.use(cors({
+  origin: 'https://personal-portfolio-phi-eight-83.vercel.app'
+}));
+
 app.use(express.json());
 
-// MongoDB
+// ✅ Test route
+app.get('/', (req, res) => {
+  res.send('Backend is running 🚀');
+});
+
+// ✅ MongoDB connection
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB error:', err));
 
-// Gmail transporter
+// ✅ Gmail transporter
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -25,7 +35,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Contact route
+// ✅ Contact route
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -34,13 +44,13 @@ app.post('/api/contact', async (req, res) => {
   }
 
   try {
-    // 1. Save to MongoDB
+    // 🔹 Save to MongoDB
     const contact = new Contact({ name, email, message });
     await contact.save();
     console.log('✓ Saved to MongoDB:', contact._id);
 
-    // 2. Send email
-    console.log('Sending email to', process.env.EMAIL_USER, '...');
+    // 🔹 Send email
+    console.log('Sending email...');
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
@@ -53,14 +63,22 @@ app.post('/api/contact', async (req, res) => {
         <p>${message.replace(/\n/g, '<br/>')}</p>
       `,
     });
+
     console.log('✓ Email sent successfully');
 
-    res.status(201).json({ success: true, message: "Message received!" });
+    res.status(201).json({
+      success: true,
+      message: "Message received!"
+    });
+
   } catch (err) {
-    console.error('✗ Error:', err.message);
-    res.status(500).json({ error: 'Server error. Please try again.' });
+    console.error('✗ Full Error:', err);
+    res.status(500).json({
+      error: 'Server error. Please try again.'
+    });
   }
 });
 
+// ✅ PORT
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

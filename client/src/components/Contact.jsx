@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './Contact.css';
 
+const API_URL = "https://personal-portfolio-0c5g.onrender.com";
+
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState(null); 
@@ -15,30 +17,34 @@ export default function Contact() {
       setStatus('err');
       return;
     }
+
     setLoading(true);
+
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
+
       if (res.ok) {
         setStatus('ok');
         setForm({ name: '', email: '', message: '' });
       } else {
         setStatus('err');
       }
-    } catch {
-      // Demo mode - shows success until backend is connected
-      setStatus('ok');
-      setForm({ name: '', email: '', message: '' });
+
+    } catch (err) {
+      console.error(err);
+      setStatus('err');
     }
+
     setLoading(false);
   };
 
   return (
     <>
-      {/* CV DOWNLOAD  */}
+      {/* CV DOWNLOAD */}
       <section id="download" className="download">
         <div className="reveal">
           <h2 className="dl-title">Download My CV</h2>
@@ -67,6 +73,7 @@ export default function Contact() {
       {/* CONTACT FORM */}
       <section id="contact" className="contact">
         <div className="contact-inner">
+
           {/* LEFT */}
           <div className="reveal-l">
             <h2 className="contact-h"><em>Get In</em><br />Touch</h2>
@@ -74,21 +81,29 @@ export default function Contact() {
               I'm currently open to internship opportunities, freelance work,
               and collaborations. Let's build something great together!
             </p>
+
             <div className="c-info-row">
               <div className="c-info-d" />
               <span>gargrakshik@gmail.com</span>
             </div>
+
             <div className="c-info-row">
               <div className="c-info-d" />
-              <span>Kota,Rajasthan</span>
+              <span>Kota, Rajasthan</span>
             </div>
+
             <div className="c-info-row">
               <div className="c-info-d" />
-              <a href="https://github.com/Rakshikagarg" target="_blank" rel="noreferrer">github.com/rakshika</a>
+              <a href="https://github.com/Rakshikagarg" target="_blank" rel="noreferrer">
+                github.com/rakshika
+              </a>
             </div>
+
             <div className="c-info-row">
               <div className="c-info-d" />
-              <a href="https://www.linkedin.com/in/rakshika-garg-a69912285/" target="_blank" rel="noreferrer">linkedin.com/in/rakshika</a>
+              <a href="https://www.linkedin.com/in/rakshika-garg-a69912285/" target="_blank" rel="noreferrer">
+                linkedin.com/in/rakshika
+              </a>
             </div>
           </div>
 
@@ -104,6 +119,7 @@ export default function Contact() {
                 onChange={handleChange}
               />
             </div>
+
             <div className="fg">
               <label>Email</label>
               <input
@@ -114,6 +130,7 @@ export default function Contact() {
                 onChange={handleChange}
               />
             </div>
+
             <div className="fg">
               <label>Message</label>
               <textarea
@@ -125,16 +142,22 @@ export default function Contact() {
             </div>
 
             <button className="send-btn" onClick={handleSubmit} disabled={loading}>
-              {loading ? 'Sending...' : 'Send Message ->'}
+              {loading ? 'Sending...' : 'Send Message →'}
             </button>
 
             {status === 'ok' && (
-              <div className="f-msg ok">Message sent! I'll get back to you soon.</div>
+              <div className="f-msg ok">
+                Message sent! I'll get back to you soon.
+              </div>
             )}
+
             {status === 'err' && (
-              <div className="f-msg err">Please fill in all fields.</div>
+              <div className="f-msg err">
+                Something went wrong. Please try again.
+              </div>
             )}
           </div>
+
         </div>
       </section>
     </>
